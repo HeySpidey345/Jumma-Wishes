@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '23a355862291041c532f08a8be533010',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/23a355862291041c532f08a8be533010/invoke.js"></script>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumma Mubarak Wishes</title>
+    <!-- Font Awesome for WhatsApp icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #002b00, #004d00, #013220); /* Deep Green Gradient */
+            color: #f0f0f0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #greetingMessage {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #f7b733;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInGreeting 1.5s ease-out forwards;
+            line-height: 1.4;
+        }
+
+        @keyframes fadeInGreeting {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #videoContainer {
+            width: 90vw; max-width: 400px;
+            aspect-ratio: 1 / 1;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            background-color: #000;
+            border: 3px solid #DAA520;
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.4), 0 0 35px rgba(218, 165, 32, 0.3);
+        }
+
+        #jummaVideo {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        #inputSection {
+            background-color: rgba(0, 60, 20, 0.4);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 90%; max-width: 400px;
+            animation: slideInUp 1s ease-out;
+            border: 1px solid #DAA520;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #nameInput {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #DAA520;
+            border-radius: 5px;
+            background-color: rgba(240, 240, 240, 0.95);
+            color: #111;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        #nameInput::placeholder { color: #555; }
+
+        .action-button {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none; /* For anchor tag */
+        }
+        .action-button i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        .action-button:hover {
+            background-color: #1DAE54; /* Darker WhatsApp Green */
+            transform: scale(1.05);
+        }
+
+        #generatedLinkContainer {
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            /* display: none; Initially hidden, shown after link generation if needed */
+        }
+        #generatedLinkContainer.visible { opacity: 1; /* display: block; */ }
+
+        #generatedLink {
+            color: #FFD700;
+            word-break: break-all;
+            background-color: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px; /* Space before copy button */
+        }
+        
+        #copyLinkButton {
+            background-color: #006400;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+            display: none; /* Initially hidden, shown with generated link */
+        }
+        #copyLinkButton:hover { background-color: #004d00; }
+
+        /* Glitter Effect */
+        .glitter {
+            position: absolute; width: 4px; height: 4px;
+            background-color: gold; border-radius: 50%;
+            opacity: 0; animation: fall linear infinite;
+            pointer-events: none; box-shadow: 0 0 5px gold, 0 0 10px gold;
+            z-index: 1000;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-20vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(120vh) rotate(720deg); opacity: 0; }
+        }
+        #glitterCanvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1000;
+        }
+
+        /* Firecracker Effect */
+        .firecracker-burst {
+            position: absolute; width: 1px; height: 1px;
+            pointer-events: none; z-index: 1001;
+        }
+        .fc-particle {
+            position: absolute; left: 0; top: 0;
+            width: 5px; height: 5px;
+            border-radius: 50%; opacity: 0;
+            animation: fcSparkFly 0.8s ease-out forwards;
+        }
+        @keyframes fcSparkFly {
+            0% { opacity: 1; transform: translate(0, 0) scale(0.3); }
+            40% { opacity: 1; transform: var(--fc-transform-mid) scale(1); }
+            100% { opacity: 0; transform: var(--fc-transform-end) scale(0.2); }
+        }
+        #fireworksCanvas {
+             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+             pointer-events: none; z-index: 1001;
+        }
+
+        @media (max-width: 600px) {
+            #greetingMessage { font-size: 1.8em; }
+            #inputSection, #videoContainer { width: 95%; }
+            .action-button { font-size: 0.9em; padding: 10px 15px; }
+            .action-button i { font-size: 1.1em; }
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="greetingMessage"></div>
+
+    <div id="videoContainer">
+        <video id="jummaVideo" src="jumma.mp4" autoplay loop playsinline muted></video>
+    </div>
+
+    <div id="inputSection">
+        <input type="text" id="nameInput" placeholder="Apna Naam Yahan Likhen">
+        <!-- Changed button to an anchor tag for direct WhatsApp sharing -->
+        <a href="#" id="shareOnWhatsAppButton" class="action-button" role="button">
+            <i class="fab fa-whatsapp"></i>WhatsApp par Share Karen
+        </a>
+        
+        <div id="generatedLinkContainer" class="visible" style="display:none;"> <!-- Initially hidden -->
+            <p>Ya yeh link copy karke share karen:</p>
+            <span id="generatedLink"></span>
+            <button id="copyLinkButton">Link Copy Karen</button>
+        </div>
+    </div>
+
+    <div id="glitterCanvas"></div>
+    <div id="fireworksCanvas"></div>
+
+
+    <script>
+        const greetingMessageElement = document.getElementById('greetingMessage');
+        const nameInputElement = document.getElementById('nameInput');
+        const shareOnWhatsAppButton = document.getElementById('shareOnWhatsAppButton');
+        const generatedLinkElement = document.getElementById('generatedLink');
+        const generatedLinkContainer = document.getElementById('generatedLinkContainer');
+        const copyLinkButton = document.getElementById('copyLinkButton');
+        const videoElement = document.getElementById('jummaVideo');
+        const glitterCanvas = document.getElementById('glitterCanvas');
+        const fireworksCanvas = document.getElementById('fireworksCanvas');
+
+        function playVideoWithSound() {
+            videoElement.muted = false;
+            const playPromise = videoElement.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {}).catch(error => {
+                    console.warn("Autoplay with sound prevented:", error);
+                    videoElement.muted = true;
+                    videoElement.play().catch(e => console.error("Muted play also failed", e));
+                });
+            }
+        }
+        
+        window.addEventListener('load', () => {
+            playVideoWithSound();
+        });
+        document.body.addEventListener('click', playVideoWithSound, { once: true });
+
+        function displayGreeting(senderName) {
+            greetingMessageElement.innerHTML = `Jumma Mubarak from <strong>${senderName}</strong>!`;
+            greetingMessageElement.style.opacity = '0'; 
+            void greetingMessageElement.offsetWidth; 
+            greetingMessageElement.style.animation = 'fadeInGreeting 1.5s ease-out forwards, pulseMessage 2s infinite 1.5s';
+        }
+
+        const dynamicStyleSheet = document.styleSheets[0];
+        try {
+            dynamicStyleSheet.insertRule(`
+                @keyframes pulseMessage {
+                    0%, 100% { transform: scale(1) translateY(0); }
+                    50% { transform: scale(1.03) translateY(0); }
+                }
+            `, dynamicStyleSheet.cssRules.length);
+        } catch (e) { console.error("Failed to insert CSS rule:", e); }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const sender = urlParams.get('sender');
+
+        if (sender) {
+            const decodedSender = decodeURIComponent(sender.replace(/\+/g, ' '));
+            displayGreeting(decodedSender);
+            // Increased firecracker bursts (9 total)
+            const firecrackerDelays = [500, 900, 1300, 1700, 2100, 2500, 2900, 3300, 3700];
+            firecrackerDelays.forEach(delay => {
+                setTimeout(() => launchFirecrackerBurst(), delay);
+            });
+        } else {
+            greetingMessageElement.innerHTML = "<strong>Jumma Mubarak!</strong>";
+            void greetingMessageElement.offsetWidth; 
+            greetingMessageElement.style.animation = 'fadeInGreeting 1.5s ease-out forwards, pulseMessage 2s infinite 1.5s';
+        }
+
+        shareOnWhatsAppButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default anchor action
+            const name = nameInputElement.value.trim();
+            if (name === "") {
+                alert("Please apna naam likhen.");
+                return;
+            }
+            const encodedName = encodeURIComponent(name);
+            const baseUrl = window.location.origin + window.location.pathname;
+            const newLink = `${baseUrl}?sender=${encodedName}`;
+            
+            // Update the link for manual copy if needed
+            generatedLinkElement.textContent = newLink;
+            generatedLinkContainer.style.display = 'block'; // Show the manual copy section
+            copyLinkButton.style.display = 'inline-block'; // Show copy button
+
+            // Construct WhatsApp share URL
+            const whatsappMessage = `Aapko ${name} ki taraf se Jumma Mubarak! ✨ Yeh dekhein: ${newLink}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            nameInputElement.value = ''; 
+        });
+
+        copyLinkButton.addEventListener('click', () => {
+            navigator.clipboard.writeText(generatedLinkElement.textContent)
+                .then(() => {
+                    alert("Link copy ho gaya!");
+                })
+                .catch(err => {
+                    console.error('Could not copy text: ', err);
+                    alert("Link copy karne mein masla hua. Aap manually copy kar sakte hain.");
+                });
+        });
+
+        function createIndividualGlitter() {
+            const glitter = document.createElement('div');
+            glitter.className = 'glitter';
+            glitter.style.left = Math.random() * 100 + 'vw';
+            glitter.style.top = '-20px';
+            const randomDuration = 3 + Math.random() * 4;
+            glitter.style.animationDuration = randomDuration + 's';
+            
+            const size = 2 + Math.random() * 3 + 'px';
+            glitter.style.width = size; glitter.style.height = size;
+
+            const colors = ['gold', 'silver', '#FFD700', '#C0C0C0', '#FFFACD'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            glitter.style.backgroundColor = randomColor;
+            glitter.style.boxShadow = `0 0 5px ${randomColor}, 0 0 8px ${randomColor}`;
+            glitterCanvas.appendChild(glitter);
+            setTimeout(() => glitter.remove(), randomDuration * 1000 + 500);
+        }
+        setInterval(createIndividualGlitter, 150); // Reduced interval for more glitter
+
+        const firecrackerColors = ['#FFD700', '#FF4500', '#32CD32', '#1E90FF', '#FF1493', '#FFFFFF', '#FFA500', '#8A2BE2']; // Added more colors
+        
+        function createFirecrackerParticle(burstElement) {
+            const particle = document.createElement('div');
+            particle.className = 'fc-particle';
+            particle.style.backgroundColor = firecrackerColors[Math.floor(Math.random() * firecrackerColors.length)];
+
+            const angle = Math.random() * 2 * Math.PI;
+            const baseFlyDistance = 60 + Math.random() * 20; // Increased base distance for bigger bursts
+            const randomFactor = 0.6 + Math.random(); 
+
+            const midFlyDistance = baseFlyDistance * randomFactor * (0.8 + Math.random() * 0.4) ;
+            const endFlyDistance = midFlyDistance * (1.2 + Math.random() * 0.3) ;
+
+            const midX = Math.cos(angle) * midFlyDistance;
+            const midY = Math.sin(angle) * midFlyDistance - (midFlyDistance * 0.15); 
+            
+            const endX = Math.cos(angle) * endFlyDistance;
+            const endY = Math.sin(angle) * endFlyDistance + (endFlyDistance * 0.1); 
+
+            particle.style.setProperty('--fc-transform-mid', `translate(${midX}px, ${midY}px)`);
+            particle.style.setProperty('--fc-transform-end', `translate(${endX}px, ${endY}px)`);
+            particle.style.animationDelay = (Math.random() * 0.10) + 's'; // Slightly less stagger for denser burst
+
+            burstElement.appendChild(particle);
+        }
+
+        function launchFirecrackerBurst() {
+            const burst = document.createElement('div');
+            burst.className = 'firecracker-burst';
+            
+            const x = Math.random() * window.innerWidth * 0.8 + (window.innerWidth * 0.1);
+            const y = Math.random() * window.innerHeight * 0.45 + (window.innerHeight * 0.05); // Slightly higher
+            burst.style.left = x + 'px';
+            burst.style.top = y + 'px';
+            
+            fireworksCanvas.appendChild(burst);
+
+            const numParticles = 35 + Math.floor(Math.random() * 20); // Increased particles per burst (35-55)
+            for (let i = 0; i < numParticles; i++) {
+                createFirecrackerParticle(burst);
+            }
+            setTimeout(() => { burst.remove(); }, 800 + 100 + 200);
+        }
+    </script>
+</body>
+</html>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '23a355862291041c532f08a8be533010',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/23a355862291041c532f08a8be533010/invoke.js"></script>
